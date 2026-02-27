@@ -2,12 +2,19 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WP5ZCH6J');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pós-Graduação em Treinamento Feminino | PTA</title>
 
-    <!-- Para produção: considere compilar o Tailwind (npm/npx) e servir um CSS estático para melhor performance. -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,40 +25,6 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            bg: '#05020a',       /* Fundo Roxo Profundo/Preto */
-                            surface: '#120a17',  /* Superfície Cartões Dark Purple */
-                            surfaceHighlight: '#1f1129',
-                            primary: '#d946ef',  /* MAGENTA/FUCHSIA (Identidade Feminina) */
-                            secondary: '#a855f7', /* Roxo secundário para degradês */
-                            accent: '#f472b6',    /* Rosa claro para detalhes */
-                        }
-                    },
-                    backgroundImage: {
-                        /* Gradiente de malha roxo/rosa */
-                        'mesh': "radial-gradient(at 0% 0%, rgba(217, 70, 239, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%)",
-                    },
-                    animation: {
-                        marquee: 'marquee 40s linear infinite', /* Animação do carrossel */
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' }, /* Move metade pois o conteúdo é duplicado */
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         html {
             scroll-behavior: smooth;
@@ -114,6 +87,11 @@
 </head>
 
 <body class="bg-brand-bg text-gray-200 font-sans antialiased overflow-x-hidden">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP5ZCH6J"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <nav class="hidden md:block fixed top-6 left-0 right-0 z-50 px-4 md:px-0" data-aos="fade-down"
         data-aos-duration="1000">
@@ -915,30 +893,36 @@
                 <i class="fas fa-times"></i>
             </button>
             <h3 class="text-2xl font-bold text-white mb-1">Preencha seus dados</h3>
-            <form id="form-inscricao" class="space-y-4 mt-6">
+            <form id="form_sm" class="space-y-4 mt-6">
                 <div>
-                    <label for="insc-nome" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
-                    <input type="text" id="insc-nome" name="nome" required placeholder="Seu nome completo"
+                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+                    <input type="text" id="name" name="nome" required placeholder="Seu nome completo"
                         class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
                 </div>
                 <div>
-                    <label for="insc-email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                    <input type="email" id="insc-email" name="email" required placeholder="seu@email.com"
+                    <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com"
                         class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
                 </div>
                 <div>
-                    <label for="insc-telefone" class="block text-sm font-medium text-gray-300 mb-1">Telefone</label>
+                    <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Telefone</label>
                     <div
                         class="flex rounded-lg overflow-hidden border border-white/10 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary bg-brand-bg">
                         <span
                             class="inline-flex items-center px-4 py-3 bg-brand-primary text-white font-bold select-none shrink-0">+55</span>
-                        <input type="tel" id="insc-telefone" name="telefone" required placeholder="11 99999-9999"
+                        <input type="tel" id="phone" name="telefone" required placeholder="11 99999-9999"
                             inputmode="numeric" pattern="[0-9\s]*" maxlength="15"
                             class="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-500 outline-none min-w-0">
                     </div>
                     <p class="text-gray-400 text-xs mt-1">DDD + número (apenas números)</p>
                     <p id="erro-telefone" class="text-red-400 text-xs mt-1 hidden">Informe o DDD e o número.</p>
                 </div>
+                <input type="hidden" id="utm_source" name="utm_source" value="">
+                <input type="hidden" id="utm_term" name="utm_term" value="">
+                <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
+                <input type="hidden" id="utm_medium" name="utm_medium" value="">
+                <input type="hidden" id="utm_content" name="utm_content" value="">
+                <input type="hidden" id="url" name="url" value="">
                 <button type="submit" id="btn-enviar-form"
                     class="w-full bg-brand-primary text-white font-bold py-4 rounded-full uppercase tracking-widest hover:shadow-[0_0_20px_rgba(217,70,239,0.4)] transition">
                     CONTINUAR
@@ -1020,7 +1004,7 @@
 
         // Scripts do Modal
         var popup = document.getElementById('popup-inscricao');
-        function abrirPopup() { popup.setAttribute('aria-hidden', 'false'); popup.classList.remove('hidden'); }
+        function abrirPopup() { preencherUtms(); popup.setAttribute('aria-hidden', 'false'); popup.classList.remove('hidden'); }
         function fecharPopup() { popup.setAttribute('aria-hidden', 'true'); popup.classList.add('hidden'); }
 
         ['btn-inscreva-nav', 'btn-inscreva-hero', 'btn-matricule', 'btn-garantir-vaga'].forEach(id => {
@@ -1028,27 +1012,64 @@
         });
         document.getElementById('popup-fechar').addEventListener('click', fecharPopup);
 
-        // Lógica de Envio do Formulário
-        document.getElementById('form-inscricao').addEventListener('submit', function (e) {
+        // Preencher UTMs e URL da página ao carregar (e quando abrir o popup)
+        function preencherUtms() {
+            var params = new URLSearchParams(window.location.search);
+            var fields = ['utm_source', 'utm_term', 'utm_campaign', 'utm_medium', 'utm_content'];
+            fields.forEach(function (key) {
+                var el = document.getElementById(key);
+                if (!el) return;
+                var fromUrl = params.get(key);
+                if (fromUrl) {
+                    el.value = fromUrl;
+                    try { sessionStorage.setItem('utm_' + key, fromUrl); } catch (e) {}
+                } else {
+                    try {
+                        var stored = sessionStorage.getItem('utm_' + key);
+                        if (stored) el.value = stored;
+                    } catch (e) {}
+                }
+            });
+            var urlEl = document.getElementById('url');
+            if (urlEl) {
+                urlEl.value = window.location.href || '';
+                try { sessionStorage.setItem('utm_page_url', urlEl.value); } catch (e) {}
+            }
+        }
+        preencherUtms();
+        document.addEventListener('DOMContentLoaded', preencherUtms);
+
+        // Lógica de Envio do Formulário (form_sm)
+        document.getElementById('form_sm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const btn = document.getElementById('btn-enviar-form');
             const originalText = btn.innerText;
             btn.innerText = 'ENVIANDO...';
 
-            // Previne múltiplos cliques
             if (btn.disabled) return;
             btn.disabled = true;
 
-            const nome = document.getElementById('insc-nome').value;
-            const email = document.getElementById('insc-email').value;
-            const telefone = document.getElementById('insc-telefone').value;
+            const name = (document.getElementById('name') && document.getElementById('name').value) || '';
+            const email = (document.getElementById('email') && document.getElementById('email').value) || '';
+            const phone = (document.getElementById('phone') && document.getElementById('phone').value) || '';
+            const utm_source = (document.getElementById('utm_source') && document.getElementById('utm_source').value) || '';
+            const utm_term = (document.getElementById('utm_term') && document.getElementById('utm_term').value) || '';
+            const utm_campaign = (document.getElementById('utm_campaign') && document.getElementById('utm_campaign').value) || '';
+            const utm_medium = (document.getElementById('utm_medium') && document.getElementById('utm_medium').value) || '';
+            const utm_content = (document.getElementById('utm_content') && document.getElementById('utm_content').value) || '';
+            const url = (document.getElementById('url') && document.getElementById('url').value) || window.location.href || '';
 
-            // Preparar payload
             const data = {
-                nome: nome,
+                name: name,
                 email: email,
-                telefone: telefone,
+                phone: phone,
+                utm_source: utm_source,
+                utm_term: utm_term,
+                utm_campaign: utm_campaign,
+                utm_medium: utm_medium,
+                utm_content: utm_content,
+                url: url,
                 date: new Date().toISOString()
             };
 
@@ -1061,16 +1082,36 @@
                 },
                 body: JSON.stringify(data),
             })
-                .then(response => {
-                    // Redirecionamento
-                    window.location.href = 'https://pos.personaltraineracademy.com.br/obg-obrigado-treinamento-feminino/';
+                .then(function (response) {
+                    var base = 'https://chk.eduzz.com/8WPAQPDQWP';
+                    var q = new URLSearchParams({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        utm_source: utm_source,
+                        utm_term: utm_term,
+                        utm_campaign: utm_campaign,
+                        utm_medium: utm_medium,
+                        utm_content: utm_content,
+                        url: url
+                    }).toString();
+                    window.location.href = base + (q ? '?' + q : '');
                 })
-                .catch((error) => {
+                .catch(function (error) {
                     console.error('Error:', error);
-                    window.location.href = 'https://pos.personaltraineracademy.com.br/obg-obrigado-treinamento-feminino/';
-                })
-                .finally(() => {
-                    // Restaura botão se necessário
+                    var base = 'https://chk.eduzz.com/8WPAQPDQWP';
+                    var q = new URLSearchParams({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        utm_source: utm_source,
+                        utm_term: utm_term,
+                        utm_campaign: utm_campaign,
+                        utm_medium: utm_medium,
+                        utm_content: utm_content,
+                        url: url
+                    }).toString();
+                    window.location.href = base + (q ? '?' + q : '');
                 });
         });
     </script>
