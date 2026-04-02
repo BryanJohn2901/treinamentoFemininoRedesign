@@ -83,57 +83,6 @@
         #popup-inscricao[aria-hidden="false"] {
             display: flex;
         }
-
-        #faixa-container {
-            flex-direction: column !important;
-            align-items: center !important;
-            gap: 0.75rem !important;
-        }
-
-        #faixa-text-container {
-            flex-direction: column !important;
-            align-items: center !important;
-            gap: 0.5rem !important;
-            text-align: center !important;
-        }
-
-        #faixa-text-container p {
-            text-align: center !important;
-            font-size: 0.75rem !important;
-            white-space: normal !important;
-            line-height: 1.4 !important;
-        }
-
-        #faixa-consumidor button {
-            width: 100% !important;
-            justify-content: center !important;
-        }
-
-        @media (min-width: 768px) {
-            #faixa-container {
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                gap: 1.5rem !important;
-            }
-
-            #faixa-text-container {
-                flex-direction: row !important;
-                align-items: center !important;
-                gap: 1rem !important;
-                width: auto !important;
-            }
-
-            #faixa-text-container p {
-                text-align: left !important;
-                font-size: 0.875rem !important;
-                white-space: nowrap !important;
-            }
-
-            #faixa-consumidor button {
-                width: auto !important;
-            }
-        }
     </style>
 </head>
 
@@ -283,8 +232,8 @@
             </div>
             <div class="h-8 w-px bg-white/10 hidden md:block"></div>
             <div data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-3xl font-black text-white">Híbrido</h3>
-                <p class="text-xs text-gray-500 uppercase tracking-widest">Online + Prática</p>
+                <h3 class="text-3xl font-black text-white">100% online</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest">Ao vivo e gravado</p>
             </div>
         </div>
     </div>
@@ -696,8 +645,8 @@
                         class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-40 transition select-none">07</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="text-xl font-bold text-white mb-2 uppercase leading-tight">Treinamento Híbrido</h4>
-                        <p class="text-sm text-gray-400 leading-relaxed">Funcional no atendimento presencial e online.
+                        <h4 class="text-xl font-bold text-white mb-2 uppercase leading-tight">Treinamento 100% online</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">Funcional aplicado no atendimento totalmente à distância.
                         </p>
                     </div>
                 </div>
@@ -982,70 +931,6 @@
         </div>
     </div>
 
-    <div id="faixa-consumidor" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: linear-gradient(90deg, #00D26A 0%, #05994A 100%); padding: 0.75rem 1rem; box-shadow: 0 -10px 25px -5px rgba(0, 210, 106, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.2);">
-        <div id="faixa-container" style="max-width: 1300px; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;">
-            <div id="faixa-text-container" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 100%;">
-                <span style="background-color: #13130F; color: #00D26A; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 9999px; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 0.3rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2); white-space: nowrap;">
-                    <i class="fas fa-calendar-alt"></i> DURANTE TODO O MÊS
-                </span>
-                <p style="color: #13130F; font-weight: 800; font-size: 0.75rem; text-align: center; margin: 0; line-height: 1.4; font-family: Inter, sans-serif; white-space: normal;">
-                    MÊS DO CONSUMIDOR <span style="font-weight: 500; opacity: 0.7; margin: 0 0.2rem;">|</span> MAIS DE 20% OFF NA PÓS
-                </p>
-            </div>
-            <button type="button" id="btn-popup-verde" style="background-color: #13130F; color: #00D26A; font-weight: 800; font-family: Inter, sans-serif; padding: 0.6rem 1.5rem; border-radius: 0.5rem; border: none; cursor: pointer; transition: all 200ms; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.2); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; width: 100%; justify-content: center;">
-                <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i> Acesso Antecipado
-            </button>
-        </div>
-    </div>
-
-    <div id="popup-verde" style="position: fixed; inset: 0; z-index: 101; display: none; align-items: center; justify-content: center; padding: 1rem; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); opacity: 0; transition: opacity 500ms ease-out;" aria-hidden="true">
-        <div style="position: relative; background-color: rgb(26, 26, 26); border: 2px solid rgb(0, 210, 106); border-radius: 1rem; max-width: 42rem; width: 100%; padding: 2.5rem; transform: scale(1); transition: 500ms ease-out; box-shadow: rgba(0, 210, 106, 0.5) 0px 0px 20px, rgba(0, 210, 106, 0.3) 0px 0px 40px, rgba(0, 210, 106, 0.2) 0px 0px 60px, rgba(0, 210, 106, 0.1) 0px 0px 20px inset;">
-            <button type="button" id="popup-fechar-verde" style="position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; color: rgb(156, 163, 175); border: none; cursor: pointer; transition: all 200ms;" onmouseover="this.style.backgroundColor='rgba(0, 210, 106, 0.2)'; this.style.color='white';" onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.05)'; this.style.color='rgb(156, 163, 175)';" aria-label="Fechar">
-                <i class="fas fa-times"></i>
-            </button>
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <img src="img/logo-consumidor.svg" alt="Mês do Consumidor" style="max-width: 200px; height: auto; margin: 0 auto 1rem;">
-            </div>
-            <h3 style="font-family: Inter, sans-serif; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 0.5rem; text-align: center;">Preencha seus dados</h3>
-            <div style="background-color: rgba(0, 210, 106, 0.1); border-left: 3px solid #00D26A; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 0.5rem;">
-                <p style="color: rgb(209, 213, 219); font-size: 0.9375rem; line-height: 1.6; margin: 0 0 0.75rem 0;">
-                    <strong style="color: #00D26A;">Mês do Consumidor da Educação Física</strong><br>
-                    Durante todo o mês de março
-                </p>
-                <p style="color: rgb(209, 213, 219); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
-                    <strong style="color: white;">Mais de 20% de desconto</strong> na sua pós-graduação. Entre no grupo VIP e receba acesso antecipado.
-                </p>
-            </div>
-            <form id="form_fe" data-product="FE3-SC" style="margin-top: 1.5rem;">
-                <input type="hidden" name="utm_source" class="lead-utm" data-utm="utm_source" value="">
-                <input type="hidden" name="utm_term" class="lead-utm" data-utm="utm_term" value="">
-                <input type="hidden" name="utm_campaign" class="lead-utm" data-utm="utm_campaign" value="">
-                <input type="hidden" name="utm_medium" class="lead-utm" data-utm="utm_medium" value="">
-                <input type="hidden" name="utm_content" class="lead-utm" data-utm="utm_content" value="">
-                <input type="hidden" name="url" class="lead-utm" data-utm="url" value="">
-                <div style="margin-bottom: 1rem;">
-                    <label for="lead-nome-verde" style="display: block; font-size: 0.875rem; font-weight: 500; color: rgb(209, 213, 219); margin-bottom: 0.375rem;">Nome completo</label>
-                    <input type="text" id="lead-nome-verde" name="nome" required placeholder="Seu nome" style="width: 100%; padding: 0.875rem 1rem; border-radius: 0.75rem; background-color: rgb(3, 9, 18); border: 1px solid rgba(255, 255, 255, 0.1); color: white; font-size: 0.875rem; outline: none; transition: border-color 200ms;" onfocus="this.style.borderColor='#00D26A'; this.style.boxShadow='0 0 0 1px #00D26A';" onblur="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.boxShadow='none';">
-                </div>
-                <div style="margin-bottom: 1rem;">
-                    <label for="lead-email-verde" style="display: block; font-size: 0.875rem; font-weight: 500; color: rgb(209, 213, 219); margin-bottom: 0.375rem;">E-mail principal</label>
-                    <input type="email" id="lead-email-verde" name="email" required placeholder="seu@email.com" style="width: 100%; padding: 0.875rem 1rem; border-radius: 0.75rem; background-color: rgb(3, 9, 18); border: 1px solid rgba(255, 255, 255, 0.1); color: white; font-size: 0.875rem; outline: none; transition: border-color 200ms;" onfocus="this.style.borderColor='#00D26A'; this.style.boxShadow='0 0 0 1px #00D26A';" onblur="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.boxShadow='none';">
-                </div>
-                <div style="margin-bottom: 1rem;">
-                    <label for="lead-phone-verde" style="display: block; font-size: 0.875rem; font-weight: 500; color: rgb(209, 213, 219); margin-bottom: 0.375rem;">WhatsApp</label>
-                    <div style="display: flex; border-radius: 0.75rem; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgb(3, 9, 18);" onfocusin="this.style.borderColor='#00D26A'; this.style.boxShadow='0 0 0 1px #00D26A';" onfocusout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.boxShadow='none';">
-                        <span style="display: inline-flex; align-items: center; padding: 0.875rem 1rem; background-color: #00D26A; color: black; font-weight: 900; user-select: none; flex-shrink: 0;">+55</span>
-                        <input type="text" id="lead-phone-verde" name="telefone" required placeholder="(11) 99999-9999" inputmode="numeric" maxlength="15" class="lead-phone mask-telefone" style="flex: 1; padding: 0.875rem 1rem; background-color: transparent; border: none; color: white; font-size: 0.875rem; outline: none; min-width: 0;">
-                    </div>
-                    <p class="lead-phone-err" style="color: rgb(248, 113, 113); font-size: 0.75rem; margin-top: 0.5rem; display: none; font-weight: 500;">Informe o DDD e o número completo.</p>
-                </div>
-                <button type="submit" class="btn-submit" style="width: 100%; background-color: #00D26A; color: black; font-family: Inter, sans-serif; font-weight: 900; padding: 1rem; margin-top: 1rem; border-radius: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; border: none; cursor: pointer; transition: all 200ms; box-shadow: 0 0 20px rgba(0, 210, 106, 0.4);" onmouseover="this.style.backgroundColor='#05B147'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='#00D26A'; this.style.transform='translateY(0)';">
-                    Acesso Antecipado
-                </button>
-            </form>
-        </div>
-    </div>
-
     <footer class="relative bg-[#02060d] pt-20 pb-10 border-t border-white/5 overflow-hidden font-sans" data-aos="fade">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -1121,11 +1006,9 @@
             }
 
             const WEBHOOK_URL = 'https://hook.us1.make.com/4n42ngpte48fu0mvpnh5ewi4vu3ddah4?produto=SM7';
-            const WEBHOOK_URL_VERDE = 'https://hook.us1.make.com/4n42ngpte48fu0mvpnh5ewi4vu3ddah4?produto=SM7';
             const REDIRECT_URL = 'https://pos.personaltraineracademy.com.br/obg-obrigado-treinamento-feminino/';
 
             const popupInscricao = document.getElementById('popup-inscricao');
-            const popupVerde = document.getElementById('popup-verde');
 
             function onlyNumbers(str) { return (str || '').replace(/\D/g, ''); }
             function formatarTelefone(val) {
@@ -1149,49 +1032,20 @@
                 popupInscricao.style.display = 'none';
             }
 
-            function abrirPopupVerde() {
-                if (!popupVerde) return;
-                popupVerde.style.display = 'flex';
-                popupVerde.setAttribute('aria-hidden', 'false');
-                requestAnimationFrame(function () { popupVerde.style.opacity = '1'; });
-            }
-
-            function fecharPopupVerde() {
-                if (!popupVerde) return;
-                popupVerde.style.opacity = '0';
-                setTimeout(function () {
-                    popupVerde.style.display = 'none';
-                    popupVerde.setAttribute('aria-hidden', 'true');
-                }, 300);
-            }
-
             ['btn-inscreva-nav', 'btn-inscreva-hero', 'btn-matricule', 'btn-garantir-vaga'].forEach(function (id) {
                 var el = document.getElementById(id);
                 if (el) el.addEventListener('click', function (e) { e.preventDefault(); abrirPopup(); });
             });
 
             document.getElementById('popup-fechar')?.addEventListener('click', fecharPopup);
-            document.getElementById('btn-popup-verde')?.addEventListener('click', function (e) {
-                e.preventDefault();
-                abrirPopupVerde();
-            });
-            document.getElementById('popup-fechar-verde')?.addEventListener('click', fecharPopupVerde);
 
             popupInscricao?.addEventListener('click', function (e) {
                 if (e.target === popupInscricao) fecharPopup();
-            });
-            popupVerde?.addEventListener('click', function (e) {
-                if (e.target === popupVerde) fecharPopupVerde();
             });
 
             document.getElementById('phone')?.addEventListener('input', function () {
                 this.value = formatarTelefone(this.value);
                 document.getElementById('erro-telefone')?.classList.add('hidden');
-            });
-            document.getElementById('lead-phone-verde')?.addEventListener('input', function () {
-                this.value = formatarTelefone(this.value);
-                var err = this.closest('form')?.querySelector('.lead-phone-err');
-                if (err) err.style.display = 'none';
             });
 
             document.getElementById('form_sm')?.addEventListener('submit', function (e) {
@@ -1214,34 +1068,6 @@
 
                 const data = { nome: nome, email: email, telefone: '+55' + telefone, produto: 'SM7' };
                 fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                }).finally(function () {
-                    window.location.href = REDIRECT_URL;
-                });
-            });
-
-            document.getElementById('form_fe')?.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const btn = this.querySelector('.btn-submit');
-                const nome = document.getElementById('lead-nome-verde')?.value?.trim() || '';
-                const email = document.getElementById('lead-email-verde')?.value?.trim() || '';
-                let telefone = onlyNumbers(document.getElementById('lead-phone-verde')?.value || '');
-                const erro = this.querySelector('.lead-phone-err');
-
-                if (telefone.length < 10) {
-                    if (erro) erro.style.display = 'block';
-                    return;
-                }
-
-                if (btn) {
-                    btn.disabled = true;
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
-                }
-
-                const data = { nome: nome, email: email, telefone: '+55' + telefone, produto: 'SM7' };
-                fetch(WEBHOOK_URL_VERDE, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)

@@ -21,7 +21,7 @@ const SHARE_URL = 'https://pos.personaltraineracademy.com.br/';
 const OG_IMAGE_URL = 'https://pos.personaltraineracademy.com.br/assets/og-banner.webp';
 const PAGE_TITLE = 'Pós-Graduação em Treinamento Feminino | PTA Women';
 const PAGE_DESCRIPTION =
-  'Pós-graduação em Treinamento Funcional e Saúde da Mulher com reconhecimento MEC. 360h em 18 meses, formato híbrido. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
+  'Pós-graduação em Treinamento Funcional e Saúde da Mulher com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
 
 function cleanDist() {
   fs.rmSync(DIST_DIR, { recursive: true, force: true });
