@@ -2,14 +2,11 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WP5ZCH6J');</script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pós-Graduação em Treinamento Feminino | PTA</title>
@@ -88,11 +85,8 @@
 
 <body class="bg-brand-bg text-gray-200 font-sans antialiased overflow-x-hidden">
 
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP5ZCH6J"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <nav class="hidden md:block fixed top-6 left-0 right-0 z-50 px-4 md:px-0" data-aos="fade-down"
         data-aos-duration="1000">
         <div class="container mx-auto max-w-5xl">
@@ -140,7 +134,10 @@
 
     <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="img/bgHero.png" alt="Fundo da seção hero - Treinamento Feminino PTA" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" class="w-full h-full object-cover opacity-60">
+            <picture>
+                <source media="(max-width: 767px)" srcset="img/LUND-1%20(1).png">
+                <img src="img/lund%20(1).png" alt="Fundo da seção hero - Treinamento Feminino PTA" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" class="w-full h-full object-cover opacity-60">
+            </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent"></div>
         </div>
 
@@ -881,14 +878,13 @@
             </div>
         </div>
     </section>
-
-    <div id="popup-inscricao"
+<div id="popup-inscricao"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
         aria-hidden="true">
         <div
             class="relative bg-brand-surface border border-brand-primary/30 rounded-2xl shadow-2xl max-w-md w-full p-8 animate-[fadeIn_0.3s_ease-out]">
             <button type="button" id="popup-fechar"
-                class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 hover:bg-brand-primary/20 flex items-center justify-center text-gray-400 hover:text-white transition"
+                class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 hover:bg-brand-primary/20 flex items-center justify-center text-gray-400 hover:text-white transition cursor-pointer border-0"
                 aria-label="Fechar">
                 <i class="fas fa-times"></i>
             </button>
@@ -924,14 +920,14 @@
                 <input type="hidden" id="utm_content" name="utm_content" value="">
                 <input type="hidden" id="url" name="url" value="">
                 <button type="submit" id="btn-enviar-form"
-                    class="w-full bg-brand-primary text-white font-bold py-4 rounded-full uppercase tracking-widest hover:shadow-[0_0_20px_rgba(217,70,239,0.4)] transition">
+                    class="w-full bg-brand-primary text-white font-bold py-4 rounded-full uppercase tracking-widest hover:shadow-[0_0_20px_rgba(217,70,239,0.4)] transition cursor-pointer border-0">
                     CONTINUAR
                 </button>
             </form>
         </div>
     </div>
 
-    <footer class="relative bg-[#02060d] pt-20 pb-10 border-t border-white/5 overflow-hidden font-sans" data-aos="fade">
+    <footer class="relative bg-[#02060d] pt-20 border-t border-white/5 overflow-hidden font-sans pb-32" data-aos="fade">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="space-y-6">
@@ -1018,14 +1014,14 @@
                 return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
             }
 
-            function abrirPopup() {
+            window.abrirPopup = function() {
                 if (!popupInscricao) return;
                 popupInscricao.setAttribute('aria-hidden', 'false');
                 popupInscricao.classList.remove('hidden');
                 popupInscricao.style.display = 'flex';
             }
 
-            function fecharPopup() {
+            window.fecharPopup = function() {
                 if (!popupInscricao) return;
                 popupInscricao.setAttribute('aria-hidden', 'true');
                 popupInscricao.classList.add('hidden');
@@ -1034,13 +1030,13 @@
 
             ['btn-inscreva-nav', 'btn-inscreva-hero', 'btn-matricule', 'btn-garantir-vaga'].forEach(function (id) {
                 var el = document.getElementById(id);
-                if (el) el.addEventListener('click', function (e) { e.preventDefault(); abrirPopup(); });
+                if (el) el.addEventListener('click', function (e) { e.preventDefault(); window.abrirPopup(); });
             });
 
-            document.getElementById('popup-fechar')?.addEventListener('click', fecharPopup);
+            document.getElementById('popup-fechar')?.addEventListener('click', window.fecharPopup);
 
             popupInscricao?.addEventListener('click', function (e) {
-                if (e.target === popupInscricao) fecharPopup();
+                if (e.target === popupInscricao) window.fecharPopup();
             });
 
             document.getElementById('phone')?.addEventListener('input', function () {
@@ -1077,6 +1073,41 @@
             });
         });
     </script>
+
+<style id="estilo-faixa-copa">
+    #faixa-copa { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; background-color: #16a34a; border-top: 1px solid rgba(74, 222, 128, 0.5); box-shadow: 0 -10px 40px rgba(22, 163, 74, 0.4); overflow: hidden; font-family: 'Inter', sans-serif; }
+    #faixa-copa-fx { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); animation: shimmerCopa 3s infinite; }
+    #faixa-copa-content { display: flex; align-items: center; justify-content: center; padding: 12px 16px; position: relative; gap: 12px; flex-direction: column; }
+    #faixa-copa-text { color: #ffffff; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 0; line-height: 1.4; }
+    #faixa-copa-highlight { color: #fde047; font-weight: 900; }
+    #faixa-copa-pulse { color: #bbf7d0; font-weight: 800; animation: pulseCopa 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    #faixa-copa-btn { background-color: #ffffff; color: #15803d; font-weight: 900; font-size: 11px; padding: 10px 24px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease; white-space: nowrap; flex-shrink: 0; margin: 0; }
+    #faixa-copa-btn:hover { transform: scale(1.05); }
+    .faixa-copa-separator { display: none; opacity: 0.5; margin: 0 4px; }
+    @keyframes pulseCopa { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    @keyframes shimmerCopa { 100% { transform: translateX(100%); } }
+    
+    /* Regra para manter em uma única linha no Desktop */
+    @media (min-width: 768px) {
+        #faixa-copa-content { flex-direction: row; gap: 24px; }
+        #faixa-copa-text { flex-direction: row; font-size: 14px; white-space: nowrap; }
+        .faixa-copa-separator { display: inline; }
+    }
+</style>
+
+<div id="faixa-copa">
+    <div id="faixa-copa-fx"></div>
+    <div id="faixa-copa-content">
+        <p id="faixa-copa-text">
+            <span>Matricule-se e garanta a <strong id="faixa-copa-highlight">camisa oficial do Time de Especialistas</strong></span>
+            <span class="faixa-copa-separator">|</span>
+            <span id="faixa-copa-pulse">EDIÇÃO LIMITADA</span>
+        </p>
+        <button type="button" id="faixa-copa-btn" onclick="window.abrirPopup(); return false;">
+            Garantir Minha Camisa
+        </button>
+    </div>
+</div>
 </body>
 
 </html>
