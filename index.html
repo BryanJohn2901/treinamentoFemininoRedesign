@@ -2,14 +2,11 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WP5ZCH6J');</script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pós-Graduação em Treinamento Feminino | PTA</title>
@@ -80,6 +77,12 @@
             color: #fff;
         }
 
+        /* Sempre acima de qualquer overlay (faixa, nav, GTM, etc.) */
+        #popup-inscricao {
+            z-index: 2147483646 !important;
+            isolation: isolate;
+        }
+
         #popup-inscricao[aria-hidden="false"] {
             display: flex;
         }
@@ -88,11 +91,45 @@
 
 <body class="bg-brand-bg text-gray-200 font-sans antialiased overflow-x-hidden">
 
-    <!-- Google Tag Manager (noscript) -->
+    <script>
+        (function () {
+            function getPopup() {
+                return document.getElementById('popup-inscricao');
+            }
+            function abrirPopupNow() {
+                var popup = getPopup();
+                if (!popup) return;
+                popup.setAttribute('aria-hidden', 'false');
+                popup.classList.remove('hidden');
+                popup.style.display = 'flex';
+            }
+            function fecharPopupNow() {
+                var popup = getPopup();
+                if (!popup) return;
+                popup.setAttribute('aria-hidden', 'true');
+                popup.classList.add('hidden');
+                popup.style.display = 'none';
+            }
+            window.abrirPopup = function () { abrirPopupNow(); };
+            window.fecharPopup = function () { fecharPopupNow(); };
+            document.addEventListener(
+                'click',
+                function (e) {
+                    var t = e.target && e.target.closest && e.target.closest(
+                        '#btn-inscreva-nav, #btn-inscreva-hero, #btn-matricule, #btn-garantir-vaga, #faixa-copa-btn'
+                    );
+                    if (!t) return;
+                    if (t.closest && t.closest('#popup-inscricao')) return;
+                    e.preventDefault();
+                    abrirPopupNow();
+                },
+                false
+            );
+        })();
+    </script>
+
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP5ZCH6J"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <nav class="hidden md:block fixed top-6 left-0 right-0 z-50 px-4 md:px-0" data-aos="fade-down"
         data-aos-duration="1000">
         <div class="container mx-auto max-w-5xl">
@@ -116,7 +153,7 @@
                         <span
                             class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                     </a>
-                    <a href="https://wa.me/5541999824070?text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+a+P%C3%B3s-Gradua%C3%A7%C3%A3o+em+Treinamento+Feminino."
+                    <a href="https://wa.me/5541988239396?text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+a+P%C3%B3s-Gradua%C3%A7%C3%A3o+em+Treinamento+Feminino."
                         target="_blank" rel="noopener noreferrer"
                         class="text-xs font-bold uppercase tracking-[0.15em] text-gray-400 hover:text-white transition-colors duration-300 relative group">
                         Dúvidas
@@ -140,7 +177,10 @@
 
     <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="img/bgHero.png" alt="Fundo da seção hero - Treinamento Feminino PTA" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" class="w-full h-full object-cover opacity-60">
+            <picture>
+                <source media="(max-width: 767px)" srcset="img/LUND-1%20(1).png">
+                <img src="img/lund%20(1).png" alt="Fundo da seção hero - Treinamento Feminino PTA" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" class="w-full h-full object-cover opacity-60">
+            </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent"></div>
         </div>
 
@@ -159,8 +199,8 @@
                     class="text-4xl md:text-6xl font-bold uppercase leading-[1.1] text-white drop-shadow-lg text-left">
                     Fisiologia, Estética e <br>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-pink-300 drop-shadow-none">Saúde
-                        da Mulher</span>
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-pink-300 drop-shadow-none">Treinamento
+                        Feminino</span>
                 </h1>
 
                 <p data-aos="fade-up" data-aos-delay="200"
@@ -248,7 +288,7 @@
                 <h3 class="text-3xl md:text-5xl font-bold text-white uppercase">
                     Especialistas que vivem <br> <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-brand-primary">a rotina
-                        da saúde da mulher</span>
+                        do treinamento feminino</span>
                 </h3>
             </div>
             <div class="grid lg:grid-cols-2 gap-12 items-start">
@@ -302,7 +342,7 @@
                             Exclusivo</div>
                         <h3 class="text-3xl font-bold text-white mb-4">Método Especialista PRO</h3>
                         <p class="text-gray-400 text-base leading-relaxed mb-8">
-                            O método Especialista PRO, parte essencial da Pós-graduação em Saúde da Mulher, foi criado
+                            O método Especialista PRO, parte essencial da Pós-graduação em Treinamento Feminino, foi criado
                             para que você aplique, elevando sua credibilidade e aumentando seu faturamento.
                         </p>
                         <button type="button" id="btn-matricule"
@@ -798,7 +838,7 @@
                     <p class="text-gray-300 text-sm md:text-base max-w-md text-center md:text-left">
                         Ficou com mais alguma dúvida? Tire rapidamente pelo WhatsApp da nossa equipe!
                     </p>
-                    <a href="https://wa.me/5541999824070?text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+a+P%C3%B3s-Gradua%C3%A7%C3%A3o+em+Treinamento+Feminino."
+                    <a href="https://wa.me/5541988239396?text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+a+P%C3%B3s-Gradua%C3%A7%C3%A3o+em+Treinamento+Feminino."
                         target="_blank" rel="noopener noreferrer"
                         class="bg-[#25D366] text-white font-bold uppercase text-sm py-3 px-8 rounded-full hover:bg-[#128C7E] transition flex items-center gap-2 shadow-lg hover:shadow-[#25D366]/20">
                         <i class="fab fa-whatsapp text-lg"></i> Tirar Dúvidas
@@ -881,14 +921,13 @@
             </div>
         </div>
     </section>
-
-    <div id="popup-inscricao"
-        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+<div id="popup-inscricao"
+        class="fixed inset-0 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
         aria-hidden="true">
         <div
             class="relative bg-brand-surface border border-brand-primary/30 rounded-2xl shadow-2xl max-w-md w-full p-8 animate-[fadeIn_0.3s_ease-out]">
             <button type="button" id="popup-fechar"
-                class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 hover:bg-brand-primary/20 flex items-center justify-center text-gray-400 hover:text-white transition"
+                class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 hover:bg-brand-primary/20 flex items-center justify-center text-gray-400 hover:text-white transition cursor-pointer border-0"
                 aria-label="Fechar">
                 <i class="fas fa-times"></i>
             </button>
@@ -911,7 +950,7 @@
                         <span
                             class="inline-flex items-center px-4 py-3 bg-brand-primary text-white font-bold select-none shrink-0">+55</span>
                         <input type="tel" id="phone" name="telefone" required placeholder="11 99999-9999"
-                            inputmode="numeric" pattern="[0-9\s]*" maxlength="15"
+                            inputmode="tel" autocomplete="tel-national" maxlength="16"
                             class="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-500 outline-none min-w-0">
                     </div>
                     <p class="text-gray-400 text-xs mt-1">DDD + número (apenas números)</p>
@@ -924,14 +963,14 @@
                 <input type="hidden" id="utm_content" name="utm_content" value="">
                 <input type="hidden" id="url" name="url" value="">
                 <button type="submit" id="btn-enviar-form"
-                    class="w-full bg-brand-primary text-white font-bold py-4 rounded-full uppercase tracking-widest hover:shadow-[0_0_20px_rgba(217,70,239,0.4)] transition">
+                    class="w-full bg-brand-primary text-white font-bold py-4 rounded-full uppercase tracking-widest hover:shadow-[0_0_20px_rgba(217,70,239,0.4)] transition cursor-pointer border-0">
                     CONTINUAR
                 </button>
             </form>
         </div>
     </div>
 
-    <footer class="relative bg-[#02060d] pt-20 pb-10 border-t border-white/5 overflow-hidden font-sans" data-aos="fade">
+    <footer class="relative bg-[#02060d] pt-20 border-t border-white/5 overflow-hidden font-sans pb-32" data-aos="fade">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="space-y-6">
@@ -976,16 +1015,20 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone-alt text-brand-primary"></i>
-                            <span>(41) 99982-4070</span>
+                            <a href="tel:+554198823-9396" class="hover:text-white transition-colors">(41) 98823-9396</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-xs text-center md:text-left">
-                    &copy; 2026 Personal Trainer Academy. Todos os direitos reservados.
-                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-center md:text-left">
+                    <p class="text-gray-500 text-xs">
+                        &copy; 2026 Personal Trainer Academy. Todos os direitos reservados.
+                    </p>
+                    <span class="hidden sm:inline text-gray-600" aria-hidden="true">·</span>
+                    <a href="tel:+554198823-9396" class="text-gray-500 text-xs hover:text-white transition-colors">Suporte: (41) 98823-9396</a>
+                </div>
                 <div class="flex items-center gap-6 text-xs text-gray-500">
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 rounded-full bg-green-500"></div>
@@ -1005,8 +1048,8 @@
                 AOS.init({ duration: 800, offset: 50, once: true, disable: 'mobile' });
             }
 
-            const WEBHOOK_URL = 'https://hook.us1.make.com/4n42ngpte48fu0mvpnh5ewi4vu3ddah4?produto=SM7';
-            const REDIRECT_URL = 'https://pos.personaltraineracademy.com.br/obg-obrigado-treinamento-feminino/';
+            const WEBHOOK_URL = 'https://hook.us1.make.com/bhigavwc6bfhskmnicov25r6jv9fnt1p?produto=SM7';
+            const REDIRECT_URL = 'https://wa.me/5541988239396?text=Quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20p%C3%B3s%20gradua%C3%A7%C3%A3o%20em%20treinamento%20feminino';
 
             const popupInscricao = document.getElementById('popup-inscricao');
 
@@ -1018,35 +1061,43 @@
                 return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
             }
 
-            function abrirPopup() {
+            window.abrirPopup = function() {
                 if (!popupInscricao) return;
                 popupInscricao.setAttribute('aria-hidden', 'false');
                 popupInscricao.classList.remove('hidden');
                 popupInscricao.style.display = 'flex';
             }
 
-            function fecharPopup() {
+            window.fecharPopup = function() {
                 if (!popupInscricao) return;
                 popupInscricao.setAttribute('aria-hidden', 'true');
                 popupInscricao.classList.add('hidden');
                 popupInscricao.style.display = 'none';
             }
 
-            ['btn-inscreva-nav', 'btn-inscreva-hero', 'btn-matricule', 'btn-garantir-vaga'].forEach(function (id) {
-                var el = document.getElementById(id);
-                if (el) el.addEventListener('click', function (e) { e.preventDefault(); abrirPopup(); });
-            });
-
-            document.getElementById('popup-fechar')?.addEventListener('click', fecharPopup);
+            document.getElementById('popup-fechar')?.addEventListener('click', window.fecharPopup);
 
             popupInscricao?.addEventListener('click', function (e) {
-                if (e.target === popupInscricao) fecharPopup();
+                if (e.target === popupInscricao) window.fecharPopup();
             });
 
             document.getElementById('phone')?.addEventListener('input', function () {
                 this.value = formatarTelefone(this.value);
                 document.getElementById('erro-telefone')?.classList.add('hidden');
             });
+
+            const utmFields = ['utm_source', 'utm_term', 'utm_campaign', 'utm_medium', 'utm_content'];
+            const pageParams = new URLSearchParams(window.location.search);
+
+            utmFields.forEach(function (field) {
+                const input = document.getElementById(field);
+                if (input) input.value = pageParams.get(field) || '';
+            });
+
+            const urlInput = document.getElementById('url');
+            if (urlInput) {
+                urlInput.value = window.location.href;
+            }
 
             document.getElementById('form_sm')?.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -1066,17 +1117,83 @@
                     btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> PROCESSANDO...';
                 }
 
-                const data = { nome: nome, email: email, telefone: '+55' + telefone, produto: 'SM7' };
-                fetch(WEBHOOK_URL, {
+                telefone = '+55' + telefone;
+                const payload = {
+                    nome: nome,
+                    email: email,
+                    telefone: telefone,
+                    utm_source: document.getElementById('utm_source')?.value || '',
+                    utm_term: document.getElementById('utm_term')?.value || '',
+                    utm_campaign: document.getElementById('utm_campaign')?.value || '',
+                    utm_medium: document.getElementById('utm_medium')?.value || '',
+                    utm_content: document.getElementById('utm_content')?.value || '',
+                    url: document.getElementById('url')?.value || window.location.href
+                };
+
+                const webhookUrl = new URL(WEBHOOK_URL);
+                webhookUrl.searchParams.set('nome', payload.nome);
+                webhookUrl.searchParams.set('email', payload.email);
+                webhookUrl.searchParams.set('telefone', payload.telefone);
+                webhookUrl.searchParams.set('utm_source', payload.utm_source);
+                webhookUrl.searchParams.set('utm_term', payload.utm_term);
+                webhookUrl.searchParams.set('utm_campaign', payload.utm_campaign);
+                webhookUrl.searchParams.set('utm_medium', payload.utm_medium);
+                webhookUrl.searchParams.set('utm_content', payload.utm_content);
+                webhookUrl.searchParams.set('url', payload.url);
+
+                const redirectSafely = function () {
+                    if (window.location.href !== REDIRECT_URL) {
+                        window.location.href = REDIRECT_URL;
+                    }
+                };
+                const redirectTimeout = setTimeout(redirectSafely, 2500);
+
+                fetch(webhookUrl.toString(), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(payload)
                 }).finally(function () {
-                    window.location.href = REDIRECT_URL;
+                    clearTimeout(redirectTimeout);
+                    redirectSafely();
                 });
             });
         });
     </script>
+
+<style id="estilo-faixa-copa">
+    #faixa-copa { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998; background-color: #16a34a; border-top: 1px solid rgba(74, 222, 128, 0.5); box-shadow: 0 -10px 40px rgba(22, 163, 74, 0.4); overflow: hidden; font-family: 'Inter', sans-serif; }
+    #faixa-copa-fx { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); animation: shimmerCopa 3s infinite; }
+    #faixa-copa-content { display: flex; align-items: center; justify-content: center; padding: 12px 16px; position: relative; gap: 12px; flex-direction: column; }
+    #faixa-copa-text { color: #ffffff; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 0; line-height: 1.4; }
+    #faixa-copa-highlight { color: #fde047; font-weight: 900; }
+    #faixa-copa-pulse { color: #bbf7d0; font-weight: 800; animation: pulseCopa 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    #faixa-copa-btn { background-color: #ffffff; color: #15803d; font-weight: 900; font-size: 11px; padding: 10px 24px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease; white-space: nowrap; flex-shrink: 0; margin: 0; }
+    #faixa-copa-btn:hover { transform: scale(1.05); }
+    .faixa-copa-separator { display: none; opacity: 0.5; margin: 0 4px; }
+    @keyframes pulseCopa { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    @keyframes shimmerCopa { 100% { transform: translateX(100%); } }
+    
+    /* Regra para manter em uma única linha no Desktop */
+    @media (min-width: 768px) {
+        #faixa-copa-content { flex-direction: row; gap: 24px; }
+        #faixa-copa-text { flex-direction: row; font-size: 14px; white-space: nowrap; }
+        .faixa-copa-separator { display: inline; }
+    }
+</style>
+
+<div id="faixa-copa">
+    <div id="faixa-copa-fx"></div>
+    <div id="faixa-copa-content">
+        <p id="faixa-copa-text">
+            <span>Matricule-se e garanta a <strong id="faixa-copa-highlight">camisa oficial do Time de Especialistas</strong></span>
+            <span class="faixa-copa-separator">|</span>
+            <span id="faixa-copa-pulse">EDIÇÃO LIMITADA</span>
+        </p>
+        <button type="button" id="faixa-copa-btn">
+            Garantir Minha Camisa
+        </button>
+    </div>
+</div>
 </body>
 
 </html>

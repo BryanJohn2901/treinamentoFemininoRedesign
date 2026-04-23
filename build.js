@@ -21,7 +21,9 @@ const SHARE_URL = 'https://pos.personaltraineracademy.com.br/';
 const OG_IMAGE_URL = 'https://pos.personaltraineracademy.com.br/assets/og-banner.webp';
 const PAGE_TITLE = 'Pós-Graduação em Treinamento Feminino | PTA Women';
 const PAGE_DESCRIPTION =
-  'Pós-graduação em Treinamento Funcional e Saúde da Mulher com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
+  'Pós-graduação em Treinamento Funcional e Treinamento Feminino com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
+const REDIRECT_WHATSAPP_URL =
+  'https://wa.me/5541995871621?text=Quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20p%C3%B3s%20gradua%C3%A7%C3%A3o%20em%20treinamento%20feminino';
 
 function cleanDist() {
   fs.rmSync(DIST_DIR, { recursive: true, force: true });
@@ -154,6 +156,11 @@ async function build() {
     .replace(/^<script>/i, '')
     .replace(/<\/script>$/i, '')
     .trim();
+
+  const normalizedMainScript = mainScript.replace(
+    /const\s+REDIRECT_URL\s*=\s*['"][^'"]*['"]\s*;/,
+    `const REDIRECT_URL = '${REDIRECT_WHATSAPP_URL}';`
+  );
   html = html.replace(mainScriptRegex, '');
 
   const tailwindCss = buildTailwind();
@@ -164,8 +171,8 @@ async function build() {
   }
   fs.writeFileSync(path.join(DIST_CSS_DIR, 'style.min.css'), cssMinified.styles, 'utf8');
 
-  const jsMinified = await minifyJs(mainScript, {
-    compress: true,
+  const jsMinified = await minifyJs(normalizedMainScript, {
+    compress: false,
     mangle: true,
     format: { comments: false },
   });
