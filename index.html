@@ -116,7 +116,7 @@
                 'click',
                 function (e) {
                     var t = e.target && e.target.closest && e.target.closest(
-                        '#btn-inscreva-nav, #btn-inscreva-hero, #btn-matricule, #btn-garantir-vaga, #faixa-copa-btn'
+                        '#btn-inscreva-nav, #btn-inscreva-hero, #btn-matricule, #btn-garantir-vaga, #faixa-copa-btn, #faixa-copa-btn-mobile'
                     );
                     if (!t) return;
                     if (t.closest && t.closest('#popup-inscricao')) return;
@@ -192,15 +192,15 @@
             <div class="space-y-6">
                 <div data-aos="fade-up" data-aos-delay="0"
                     class="inline-flex items-center gap-2 px-3 py-1 rounded border border-brand-primary/30 bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest backdrop-blur-md w-fit">
-                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Turma 2026 Confirmada
+                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Pós-graduação em:
                 </div>
 
                 <h1 data-aos="fade-up" data-aos-delay="100"
-                    class="text-4xl md:text-6xl font-bold uppercase leading-[1.1] text-white drop-shadow-lg text-left">
-                    Fisiologia, Estética e <br>
+                    class="text-3xl md:text-5xl font-bold uppercase leading-[1.15] text-white drop-shadow-lg text-left">
                     <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-pink-300 drop-shadow-none">Treinamento
-                        Feminino</span>
+                        Feminino</span>: <br>
+                    Emagrecimento, Estética e Performance
                 </h1>
 
                 <p data-aos="fade-up" data-aos-delay="200"
@@ -1161,22 +1161,29 @@
     </script>
 
 <style id="estilo-faixa-copa">
-    #faixa-copa { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; background-color: #16a34a; border-top: 1px solid rgba(74, 222, 128, 0.5); box-shadow: 0 -10px 40px rgba(22, 163, 74, 0.4); overflow: hidden; font-family: 'Inter', sans-serif; }
-    #faixa-copa-fx { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); animation: shimmerCopa 3s infinite; }
-    #faixa-copa-content { display: flex; align-items: center; justify-content: center; padding: 12px 16px; position: relative; gap: 12px; flex-direction: column; }
+    #faixa-copa { font-family: 'Inter', sans-serif; }
+    #faixa-copa-fx { display: none; }
+    #faixa-copa-content { display: flex; align-items: center; justify-content: center; padding: 16px 20px; position: fixed; top: 0; left: 0; right: 0; z-index: 99999; gap: 12px; flex-direction: column; background-color: #15803d; border-bottom: 1px solid rgba(74, 222, 128, 0.4); box-shadow: 0 10px 30px rgba(21, 128, 61, 0.35); }
     #faixa-copa-text { color: #ffffff; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 0; line-height: 1.4; }
     #faixa-copa-highlight { color: #fde047; font-weight: 900; }
     #faixa-copa-pulse { color: #bbf7d0; font-weight: 800; animation: pulseCopa 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-    #faixa-copa-btn { background-color: #ffffff; color: #15803d; font-weight: 900; font-size: 11px; padding: 10px 24px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease; white-space: nowrap; flex-shrink: 0; margin: 0; }
+    #faixa-copa-btn { display: none; background-color: #ffffff; color: #15803d; font-weight: 900; font-size: 11px; padding: 12px 30px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease; white-space: nowrap; flex-shrink: 0; margin: 0; }
+    #faixa-copa-mobile-cta { display: flex; justify-content: center; align-items: center; position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; padding: 14px 20px 16px; background-color: #15803d; border-top: 1px solid rgba(74, 222, 128, 0.35); box-shadow: 0 -10px 30px rgba(21, 128, 61, 0.35); }
+    #faixa-copa-btn-mobile { background-color: #ffffff; color: #15803d; font-weight: 900; font-size: 11px; padding: 12px 30px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease; white-space: nowrap; margin: 0; }
     #faixa-copa-btn:hover { transform: scale(1.05); }
+    #faixa-copa-btn-mobile:hover { transform: scale(1.05); }
     .faixa-copa-separator { display: none; opacity: 0.5; margin: 0 4px; }
     @keyframes pulseCopa { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
     @keyframes shimmerCopa { 100% { transform: translateX(100%); } }
     
     /* Regra para manter em uma única linha no Desktop */
     @media (min-width: 768px) {
-        #faixa-copa-content { flex-direction: row; gap: 24px; }
+        #faixa-copa { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; background-color: #15803d; border-top: 1px solid rgba(74, 222, 128, 0.4); box-shadow: 0 -10px 40px rgba(21, 128, 61, 0.45); overflow: hidden; }
+        #faixa-copa-fx { display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); animation: shimmerCopa 3s infinite; }
+        #faixa-copa-content { position: relative; top: auto; left: auto; right: auto; z-index: 1; border-bottom: none; box-shadow: none; flex-direction: row; gap: 24px; }
         #faixa-copa-text { flex-direction: row; font-size: 14px; white-space: nowrap; }
+        #faixa-copa-btn { display: inline-flex; }
+        #faixa-copa-mobile-cta { display: none; }
         .faixa-copa-separator { display: inline; }
     }
 </style>
@@ -1185,11 +1192,14 @@
     <div id="faixa-copa-fx"></div>
     <div id="faixa-copa-content">
         <p id="faixa-copa-text">
-            <span>Matricule-se e garanta a <strong id="faixa-copa-highlight">camisa oficial do Time de Especialistas</strong></span>
-            <span class="faixa-copa-separator">|</span>
-            <span id="faixa-copa-pulse">EDIÇÃO LIMITADA</span>
+            <span><strong id="faixa-copa-highlight">Matricule-se agora</strong> na pós-graduação e receba a <strong id="faixa-copa-highlight">camiseta exclusiva</strong> do time de especialistas <span id="faixa-copa-pulse">em casa</span></span>
         </p>
         <button type="button" id="faixa-copa-btn">
+            Garantir Minha Camisa
+        </button>
+    </div>
+    <div id="faixa-copa-mobile-cta">
+        <button type="button" id="faixa-copa-btn-mobile">
             Garantir Minha Camisa
         </button>
     </div>
