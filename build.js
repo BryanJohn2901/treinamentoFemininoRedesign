@@ -19,7 +19,7 @@ const TMP_TW_OUTPUT = path.join(ROOT, '.tmp-tailwind-build.css');
 const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/';
 const SHARE_URL = 'https://pos.personaltraineracademy.com.br/';
 const OG_IMAGE_URL = 'https://pos.personaltraineracademy.com.br/assets/og-banner.webp';
-const PAGE_TITLE = 'Pós-Graduação em Treinamento Feminino | PTA Women';
+const PAGE_TITLE = 'Pós-Graduação em Treinamento Feminino | PTA';
 const PAGE_DESCRIPTION =
   'Pós-graduação em Treinamento Funcional e Treinamento Feminino com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
 const REDIRECT_WHATSAPP_URL =
