@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './dist/index.html'],
+  content: ['./index.html', './v2.html', './dist/index.html', './dist/v2.html'],
   theme: {
     extend: {
       colors: {
@@ -14,14 +14,20 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        title: ['Oswald', 'sans-serif'],
       },
       animation: {
         marquee: 'marquee 40s linear infinite',
+        'glow-pulse': 'glowPulse 2.4s ease-in-out infinite',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        glowPulse: {
+          '0%, 100%': { boxShadow: '0 10px 30px rgba(217,70,239,0.35), 0 0 0 0 rgba(217,70,239,0.35)' },
+          '50%': { boxShadow: '0 10px 30px rgba(217,70,239,0.35), 0 0 0 8px rgba(217,70,239,0)' },
         },
       },
     },

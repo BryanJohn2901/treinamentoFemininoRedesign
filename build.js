@@ -13,6 +13,7 @@ const DIST_JS_DIR = path.join(DIST_DIR, 'js');
 const DIST_ASSETS_DIR = path.join(DIST_DIR, 'assets');
 
 const SOURCE_HTML = path.join(ROOT, 'index.html');
+const SOURCE_V2_HTML = path.join(ROOT, 'v2.html');
 const SOURCE_TW_INPUT = path.join(ROOT, 'src', 'input.css');
 const TMP_TW_OUTPUT = path.join(ROOT, '.tmp-tailwind-build.css');
 
@@ -22,6 +23,11 @@ const OG_IMAGE_URL = 'https://pos.personaltraineracademy.com.br/assets/og-banner
 const PAGE_TITLE = 'Pós-Graduação em Treinamento Feminino | PTA';
 const PAGE_DESCRIPTION =
   'Pós-graduação em Treinamento Funcional e Treinamento Feminino com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
+const V2_CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/v2.html';
+const V2_PAGE_TITLE =
+  'Pós-graduação em Treinamento Feminino: Emagrecimento, Estética e Performance | PTA';
+const V2_PAGE_DESCRIPTION =
+  'Torne-se referência em Treinamento Feminino ao entregar resultados reais em emagrecimento, estética e performance, com base científica e aplicação prática.';
 const REDIRECT_WHATSAPP_URL =
   'https://wa.me/5541995871621?text=Quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20p%C3%B3s%20gradua%C3%A7%C3%A3o%20em%20treinamento%20feminino';
 
@@ -48,43 +54,48 @@ function ensureHeadTag(html, regex, content) {
   return html.replace('</head>', `${content}\n</head>`);
 }
 
-function normalizeHeadSeo(html) {
-  html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${PAGE_TITLE}</title>`);
+function normalizeHeadSeo(html, options = {}) {
+  const title = options.title || PAGE_TITLE;
+  const description = options.description || PAGE_DESCRIPTION;
+  const canonical = options.canonical || CANONICAL_URL;
+  const shareUrl = options.shareUrl || SHARE_URL;
+
+  html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
 
   if (/<meta\s+name=["']description["']/i.test(html)) {
     html = html.replace(
       /<meta\s+name=["']description["'][^>]*>/i,
-      `<meta name="description" content="${PAGE_DESCRIPTION}">`
+      `<meta name="description" content="${description}">`
     );
   } else {
-    html = html.replace('</title>', `</title>\n    <meta name="description" content="${PAGE_DESCRIPTION}">`);
+    html = html.replace('</title>', `</title>\n    <meta name="description" content="${description}">`);
   }
 
   if (/<link\s+rel=["']canonical["']/i.test(html)) {
     html = html.replace(
       /<link\s+rel=["']canonical["'][^>]*>/i,
-      `<link rel="canonical" href="${CANONICAL_URL}">`
+      `<link rel="canonical" href="${canonical}">`
     );
   } else {
-    html = html.replace('</head>', `    <link rel="canonical" href="${CANONICAL_URL}">\n</head>`);
+    html = html.replace('</head>', `    <link rel="canonical" href="${canonical}">\n</head>`);
   }
 
   const socialTags = `
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${SHARE_URL}">
-    <meta property="og:title" content="${PAGE_TITLE}">
-    <meta property="og:description" content="${PAGE_DESCRIPTION}">
+    <meta property="og:url" content="${shareUrl}">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${description}">
     <meta property="og:image" content="${OG_IMAGE_URL}">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="${SHARE_URL}">
-    <meta name="twitter:title" content="${PAGE_TITLE}">
-    <meta name="twitter:description" content="${PAGE_DESCRIPTION}">
+    <meta name="twitter:url" content="${shareUrl}">
+    <meta name="twitter:title" content="${title}">
+    <meta name="twitter:description" content="${description}">
     <meta name="twitter:image" content="${OG_IMAGE_URL}">`;
 
-  if (!/<meta\s+property=["']og:title["']/i.test(html)) {
-    html = html.replace('</head>', `${socialTags}\n</head>`);
-  }
+  html = html.replace(/<meta\s+property=["']og:[^"']+["'][^>]*>\s*/gi, '');
+  html = html.replace(/<meta\s+name=["']twitter:[^"']+["'][^>]*>\s*/gi, '');
+  html = html.replace('</head>', `${socialTags}\n</head>`);
 
   html = ensureHeadTag(
     html,
@@ -93,6 +104,37 @@ function normalizeHeadSeo(html) {
   );
 
   return html;
+}
+
+function extractInlineStyles(html) {
+  const styles = [...html.matchAll(/<style>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
+  return {
+    styles,
+    html: html.replace(/<style>[\s\S]*?<\/style>/gi, ''),
+  };
+}
+
+async function finalizeHtml(html, imageReplacementMap, seoOptions) {
+  html = html.replace(/<link[^>]*href=["']\.?\/?output\.css["'][^>]*>/i, '<link rel="stylesheet" href="css/style.min.css">');
+  html = normalizeHeadSeo(html, seoOptions);
+  html = html.replace(/\salt=(['"])\1/g, ' alt="Imagem decorativa"');
+  html = html.replace(/(["'(=\s])img\//g, '$1assets/img/');
+  html = html.replace(/(["'(=\s])favicon\.ico/g, '$1assets/favicon.ico');
+
+  for (const [from, to] of imageReplacementMap.entries()) {
+    html = html.replace(new RegExp(from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), to);
+  }
+
+  return minifyHtml(html, {
+    collapseWhitespace: true,
+    removeComments: true,
+    minifyCSS: false,
+    minifyJS: false,
+    removeRedundantAttributes: true,
+    removeEmptyAttributes: false,
+    keepClosingSlash: true,
+    caseSensitive: true,
+  });
 }
 
 function copyDirSafe(source, target) {
@@ -143,9 +185,17 @@ async function build() {
   cleanDist();
 
   let html = fs.readFileSync(SOURCE_HTML, 'utf8');
+  let v2Html = fs.existsSync(SOURCE_V2_HTML) ? fs.readFileSync(SOURCE_V2_HTML, 'utf8') : null;
 
-  const styles = [...html.matchAll(/<style>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
-  html = html.replace(/<style>[\s\S]*?<\/style>/gi, '');
+  const indexStyles = extractInlineStyles(html);
+  html = indexStyles.html;
+  let mergedPageStyles = indexStyles.styles;
+
+  if (v2Html) {
+    const v2Styles = extractInlineStyles(v2Html);
+    v2Html = v2Styles.html;
+    mergedPageStyles = `${mergedPageStyles}\n${v2Styles.styles}`;
+  }
 
   const mainScriptRegex = /<script>\s*document\.addEventListener\('DOMContentLoaded'[\s\S]*?<\/script>/i;
   const mainScriptMatch = html.match(mainScriptRegex);
@@ -163,8 +213,20 @@ async function build() {
   );
   html = html.replace(mainScriptRegex, '');
 
+  let v2Script = null;
+  if (v2Html) {
+    const v2ScriptMatch = v2Html.match(mainScriptRegex);
+    if (v2ScriptMatch) {
+      v2Script = v2ScriptMatch[0]
+        .replace(/^<script>/i, '')
+        .replace(/<\/script>$/i, '')
+        .trim();
+      v2Html = v2Html.replace(mainScriptRegex, '');
+    }
+  }
+
   const tailwindCss = buildTailwind();
-  const mergedCss = `${tailwindCss}\n${styles}`;
+  const mergedCss = `${tailwindCss}\n${mergedPageStyles}`;
   const cssMinified = new CleanCSS({ level: 2 }).minify(mergedCss);
   if (cssMinified.errors.length) {
     throw new Error(`Erro ao minificar CSS: ${cssMinified.errors.join('; ')}`);
@@ -180,15 +242,20 @@ async function build() {
     throw new Error('Falha ao minificar JS principal.');
   }
   fs.writeFileSync(path.join(DIST_JS_DIR, 'main.min.js'), jsMinified.code, 'utf8');
-
-  html = html.replace(/<link[^>]*href=["']\.?\/?output\.css["'][^>]*>/i, '<link rel="stylesheet" href="css/style.min.css">');
   html = html.replace('</body>', '    <script src="js/main.min.js" defer></script>\n</body>');
 
-  html = normalizeHeadSeo(html);
-  html = html.replace(/\salt=(['"])\1/g, ' alt="Imagem decorativa"');
-
-  html = html.replace(/(["'(=\s])img\//g, '$1assets/img/');
-  html = html.replace(/(["'(=\s])favicon\.ico/g, '$1assets/favicon.ico');
+  if (v2Script) {
+    const v2JsMinified = await minifyJs(v2Script, {
+      compress: false,
+      mangle: true,
+      format: { comments: false },
+    });
+    if (!v2JsMinified.code) {
+      throw new Error('Falha ao minificar JS da V2.');
+    }
+    fs.writeFileSync(path.join(DIST_JS_DIR, 'v2.min.js'), v2JsMinified.code, 'utf8');
+    v2Html = v2Html.replace('</body>', '    <script src="js/v2.min.js" defer></script>\n</body>');
+  }
 
   copyDirSafe(path.join(ROOT, 'img'), path.join(DIST_ASSETS_DIR, 'img'));
   copyDirSafe(path.join(ROOT, 'fonts'), path.join(DIST_ASSETS_DIR, 'fonts'));
@@ -204,22 +271,24 @@ async function build() {
   });
 
   const imageReplacementMap = await optimizeImagesAndBuildReplacementMap();
-  for (const [from, to] of imageReplacementMap.entries()) {
-    html = html.replace(new RegExp(from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), to);
-  }
 
-  const htmlMinified = await minifyHtml(html, {
-    collapseWhitespace: true,
-    removeComments: true,
-    minifyCSS: false,
-    minifyJS: false,
-    removeRedundantAttributes: true,
-    removeEmptyAttributes: false,
-    keepClosingSlash: true,
-    caseSensitive: true,
+  const htmlMinified = await finalizeHtml(html, imageReplacementMap, {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    canonical: CANONICAL_URL,
+    shareUrl: SHARE_URL,
   });
-
   fs.writeFileSync(path.join(DIST_DIR, 'index.html'), htmlMinified, 'utf8');
+
+  if (v2Html) {
+    const v2Minified = await finalizeHtml(v2Html, imageReplacementMap, {
+      title: V2_PAGE_TITLE,
+      description: V2_PAGE_DESCRIPTION,
+      canonical: V2_CANONICAL_URL,
+      shareUrl: V2_CANONICAL_URL,
+    });
+    fs.writeFileSync(path.join(DIST_DIR, 'v2.html'), v2Minified, 'utf8');
+  }
 
   if (fs.existsSync(TMP_TW_OUTPUT)) {
     fs.rmSync(TMP_TW_OUTPUT, { force: true });
