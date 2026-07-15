@@ -903,10 +903,6 @@ html {
   display: none;
 }
 
-.aspect-\[3\/4\] {
-  aspect-ratio: 3/4;
-}
-
 .h-0 {
   height: 0px;
 }
@@ -943,6 +939,10 @@ html {
   height: 0.5rem;
 }
 
+.h-56 {
+  height: 14rem;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -951,8 +951,8 @@ html {
   height: 24rem;
 }
 
-.h-\[320px\] {
-  height: 320px;
+.h-\[352px\] {
+  height: 352px;
 }
 
 .h-\[400px\] {
@@ -1021,6 +1021,10 @@ html {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-\[198px\] {
+  width: 198px;
 }
 
 .w-\[420px\] {
@@ -1168,6 +1172,20 @@ html {
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 45s linear infinite;
 }
 
 @keyframes pulse {
@@ -1396,10 +1414,6 @@ html {
   border-top-width: 8px;
 }
 
-.border-dashed {
-  border-style: dashed;
-}
-
 .border-\[var\(--pta-accent-border\)\] {
   border-color: var(--pta-accent-border);
 }
@@ -1439,10 +1453,6 @@ html {
 
 .border-white\/15 {
   border-color: rgb(255 255 255 / 0.15);
-}
-
-.border-white\/20 {
-  border-color: rgb(255 255 255 / 0.2);
 }
 
 .border-white\/5 {
@@ -2749,6 +2759,18 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.group\/dep1:hover .group-hover\/dep1\:\[animation-play-state\:paused\] {
+  animation-play-state: paused;
+}
+
+.group\/dep2:hover .group-hover\/dep2\:\[animation-play-state\:paused\] {
+  animation-play-state: paused;
+}
+
+.group\/modulos:hover .group-hover\/modulos\:\[animation-play-state\:paused\] {
+  animation-play-state: paused;
+}
+
 @media not all and (min-width: 768px) {
   .max-md\:bottom-\[0\.6rem\] {
     bottom: 0.6rem;
@@ -2830,12 +2852,28 @@ html {
     height: 3.5rem;
   }
 
-  .md\:h-\[380px\] {
-    height: 380px;
+  .md\:h-20 {
+    height: 5rem;
+  }
+
+  .md\:h-64 {
+    height: 16rem;
+  }
+
+  .md\:h-\[420px\] {
+    height: 420px;
   }
 
   .md\:w-12 {
     width: 3rem;
+  }
+
+  .md\:w-24 {
+    width: 6rem;
+  }
+
+  .md\:w-\[236px\] {
+    width: 236px;
   }
 
   .md\:grid-cols-2 {

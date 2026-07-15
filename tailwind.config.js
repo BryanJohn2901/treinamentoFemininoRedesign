@@ -18,12 +18,17 @@ module.exports = {
       },
       animation: {
         marquee: 'marquee 40s linear infinite',
+        'marquee-reverse': 'marqueeReverse 45s linear infinite',
         'glow-pulse': 'glowPulse 2.4s ease-in-out infinite',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         },
         glowPulse: {
           '0%, 100%': { boxShadow: '0 10px 30px rgba(217,70,239,0.35), 0 0 0 0 rgba(217,70,239,0.35)' },
