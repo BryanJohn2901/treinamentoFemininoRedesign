@@ -62,6 +62,13 @@ function normalizeHeadSeo(html, options = {}) {
 
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
 
+  if (!/<meta\s+name=["']viewport["']/i.test(html)) {
+    html = html.replace(
+      /<meta\s+charset=["'][^"']*["']\s*\/?>/i,
+      (match) => `${match}\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">`
+    );
+  }
+
   if (/<meta\s+name=["']description["']/i.test(html)) {
     html = html.replace(
       /<meta\s+name=["']description["'][^>]*>/i,
@@ -101,6 +108,21 @@ function normalizeHeadSeo(html, options = {}) {
     html,
     /<link\s+rel=["']preconnect["']\s+href=["']https:\/\/fonts\.googleapis\.com["']/i,
     `    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
+  );
+  html = ensureHeadTag(
+    html,
+    /<link\s+rel=["']preconnect["']\s+href=["']https:\/\/cdnjs\.cloudflare\.com["']/i,
+    `    <link rel="preconnect" href="https://cdnjs.cloudflare.com">`
+  );
+  html = ensureHeadTag(
+    html,
+    /<link\s+rel=["']preconnect["']\s+href=["']https:\/\/unpkg\.com["']/i,
+    `    <link rel="preconnect" href="https://unpkg.com">`
+  );
+  html = ensureHeadTag(
+    html,
+    /<link\s+rel=["']preconnect["']\s+href=["']https:\/\/www\.googletagmanager\.com["']/i,
+    `    <link rel="preconnect" href="https://www.googletagmanager.com">`
   );
 
   return html;
