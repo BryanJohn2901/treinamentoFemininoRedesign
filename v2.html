@@ -979,7 +979,14 @@
 
             utmFields.forEach(function (field) {
                 const input = document.getElementById(field);
-                if (input) input.value = pageParams.get(field) || '';
+                if (!input) return;
+                const fromUrl = pageParams.get(field);
+                if (fromUrl) {
+                    input.value = fromUrl;
+                    try { sessionStorage.setItem(field, fromUrl); } catch (err) {}
+                } else {
+                    try { input.value = sessionStorage.getItem(field) || ''; } catch (err) { input.value = ''; }
+                }
             });
 
             const urlInput = document.getElementById('url');
@@ -1006,7 +1013,7 @@
                 }
 
                 telefone = '+55' + telefone;
-                const redirectUrl = checkoutUrlAtual || document.getElementById('checkout_url')?.value || '';
+                const checkoutBase = checkoutUrlAtual || document.getElementById('checkout_url')?.value || '';
                 const payload = {
                     nome: nome,
                     email: email,
@@ -1029,6 +1036,20 @@
                 webhookUrl.searchParams.set('utm_medium', payload.utm_medium);
                 webhookUrl.searchParams.set('utm_content', payload.utm_content);
                 webhookUrl.searchParams.set('url', payload.url);
+
+                let redirectUrl = checkoutBase;
+                if (checkoutBase) {
+                    const checkoutUrl = new URL(checkoutBase);
+                    checkoutUrl.searchParams.set('nome', payload.nome);
+                    checkoutUrl.searchParams.set('email', payload.email);
+                    checkoutUrl.searchParams.set('telefone', payload.telefone);
+                    checkoutUrl.searchParams.set('name', payload.nome);
+                    checkoutUrl.searchParams.set('phone', payload.telefone);
+                    ['utm_source', 'utm_term', 'utm_campaign', 'utm_medium', 'utm_content'].forEach(function (key) {
+                        if (payload[key]) checkoutUrl.searchParams.set(key, payload[key]);
+                    });
+                    redirectUrl = checkoutUrl.toString();
+                }
 
                 const redirectSafely = function () {
                     if (redirectUrl && window.location.href !== redirectUrl) {
