@@ -63,9 +63,10 @@
         .text-stroke {
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
             color: transparent;
+            transition: -webkit-text-stroke-color 0.3s ease, -webkit-text-stroke-width 0.3s ease, opacity 0.3s ease;
         }
         .card-hover:hover .text-stroke {
-            -webkit-text-stroke: 1px rgba(217, 70, 239, 0.3);
+            -webkit-text-stroke: 1.5px rgba(217, 70, 239, 0.75);
         }
         .row-icon {
             width: 22px;
@@ -345,156 +346,171 @@
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
                 <p class="text-brand-primary font-bold uppercase tracking-widest text-sm mb-3">Grade curricular</p>
                 <h2 class="text-3xl md:text-5xl font-bold text-white uppercase leading-tight">
-                    O que você vai aprender em 18 meses na
-                    <span class="text-brand-primary block mt-2">Pós-graduação em Treinamento Feminino</span>
+                    O que você vai aprender em 18 meses na <span class="text-brand-primary">Pós-graduação em Treinamento Feminino</span>
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">01</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">01</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Fisiologia Hormonal</h4>
-                        <p class="text-sm text-gray-400">Endocrinologia e resultados estéticos.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">02</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Prevenção de Lesões MMII</h4>
-                        <p class="text-sm text-gray-400">Prevenção e reabilitação de membros inferiores.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">03</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Nutrição Feminina</h4>
-                        <p class="text-sm text-gray-400">Da saúde física aos resultados estéticos.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">04</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Métodos de Emagrecimento</h4>
-                        <p class="text-sm text-gray-400">Estratégias específicas para mulheres.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">05</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Reabilitação Musculoesquelética</h4>
-                        <p class="text-sm text-gray-400">Patologias de maior prevalência no sexo feminino.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">06</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Gestantes e Pós-parto</h4>
-                        <p class="text-sm text-gray-400">Cuidados no atendimento e diástase abdominal.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">07</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Treinamento 100% online</h4>
-                        <p class="text-sm text-gray-400">Funcional aplicado no atendimento à distância.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">08</span>
-                    <div class="relative z-10">
-                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Carlos Garon</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Força e Hipertrofia</h4>
-                        <p class="text-sm text-gray-400">Estratégias específicas para o público feminino.</p>
+                        <p class="text-sm text-gray-400">Treinamento de força e hipertrofia no público feminino.</p>
                     </div>
                 </div>
-                <div class="group relative bg-gradient-to-br from-brand-surface to-brand-primary/20 border border-brand-primary/30 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <div class="absolute top-4 right-4 text-xs font-bold text-white bg-brand-primary px-2 py-1 rounded">BÔNUS</div>
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">09</span>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">02</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Rafael Tonietto</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Marketing Digital</h4>
                         <p class="text-sm text-gray-400">Produção de conteúdo, posicionamento e vendas online.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">10</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">03</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Jennifer Suassuna</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Avaliação Postural e Física</h4>
-                        <p class="text-sm text-gray-400">Como avaliar para obter estética corporal e saúde.</p>
+                        <p class="text-sm text-gray-400">Como avaliar para obter estética corporal e saúde articular.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">11</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">04</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
-                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Biomecânica MMSS</h4>
-                        <p class="text-sm text-gray-400">Hipertrofia de membros superiores e core.</p>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com André Albuquerque</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Biomecânica MMSS e Core</h4>
+                        <p class="text-sm text-gray-400">Hipertrofia de membros superiores e core training no treinamento feminino.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">12</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">05</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Ana Mendes</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Ciclo Menstrual</h4>
-                        <p class="text-sm text-gray-400">Periodização e prescrição a partir do ciclo.</p>
+                        <p class="text-sm text-gray-400">Periodização e prescrição do treinamento a partir do ciclo menstrual.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">13</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">06</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Luisa Costa</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Condições Especiais</h4>
-                        <p class="text-sm text-gray-400">Osteoporose, fibromialgia, diabetes, hipertensão.</p>
+                        <p class="text-sm text-gray-400">Osteoporose, fibromialgia, diabetes, hipertensão e outras doenças.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">14</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">07</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Fernanda Queiroz</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Biomecânica MMII</h4>
-                        <p class="text-sm text-gray-400">Foco em glúteos e coxas.</p>
+                        <p class="text-sm text-gray-400">Hipertrofia de membros inferiores no treinamento feminino.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">15</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">08</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Roberta Rica</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Cross Training</h4>
                         <p class="text-sm text-gray-400">Circuitos de alta intensidade para mulheres.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">16</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">09</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Roberta Toledo e Sara Crossati</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Corrida e Pilates</h4>
-                        <p class="text-sm text-gray-400">Aplicações para o público feminino.</p>
+                        <p class="text-sm text-gray-400">Corrida e Pilates para o público feminino.</p>
                     </div>
                 </div>
                 <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">17</span>
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">10</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Juma Lima</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">LPF</h4>
-                        <p class="text-sm text-gray-400">Funcionalidade e estética feminina.</p>
+                        <p class="text-sm text-gray-400">Aplicações práticas na funcionalidade e na estética feminina.</p>
                     </div>
                 </div>
-                <div class="group relative bg-brand-surface border border-brand-primary/50 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
-                    <div class="absolute top-4 right-4 text-xs font-bold text-white bg-brand-primary px-2 py-1 rounded">POWER</div>
-                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 select-none">18</span>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">11</span>
                     <div class="relative z-10">
                         <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Francielli Guimarães</p>
                         <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Bodybuilding Feminino</h4>
-                        <p class="text-sm text-gray-400">Métodos avançados para ganho de massa magra.</p>
+                        <p class="text-sm text-gray-400">Métodos de treino para ganho de massa magra e força em mulheres.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">12</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Bruna Massaroto</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Prevenção de Lesões MMII</h4>
+                        <p class="text-sm text-gray-400">Prevenção e reabilitação de lesões de membros inferiores.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">13</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Walter Krause Neto</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Periodização Avançada</h4>
+                        <p class="text-sm text-gray-400">Técnicas avançadas para construção de um físico feminino estético.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">14</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Yesudian Yamada</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Nutrição Feminina</h4>
+                        <p class="text-sm text-gray-400">Da saúde física aos resultados estéticos.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">15</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Luciana Costa</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Reabilitação Musculoesquelética</h4>
+                        <p class="text-sm text-gray-400">Patologias de maior prevalência no sexo feminino.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">16</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Barbara Braga</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Fisiologia Hormonal</h4>
+                        <p class="text-sm text-gray-400">Regulação endócrina, estética e performance.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">17</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Carol Padovani</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">A Mente da Mulher que Treina</h4>
+                        <p class="text-sm text-gray-400">Aspectos psicológicos na prescrição e na adesão ao exercício.</p>
+                    </div>
+                </div>
+                <div class="group relative bg-brand-surface border border-white/5 p-8 rounded-2xl overflow-hidden hover:border-brand-primary transition card-hover" data-aos="fade-up">
+                    <span class="absolute -right-4 -top-6 text-9xl font-black text-stroke opacity-20 group-hover:opacity-70 select-none">18</span>
+                    <div class="relative z-10">
+                        <div class="w-10 h-1 bg-brand-primary mb-4"></div>
+                        <p class="text-xs text-brand-primary font-bold uppercase tracking-widest mb-2">com Gabriela Cangussu</p>
+                        <h4 class="font-title text-xl font-bold text-white mb-2 uppercase">Gestantes e Pós-parto</h4>
+                        <p class="text-sm text-gray-400">Cuidados no atendimento e diástase abdominal.</p>
                     </div>
                 </div>
             </div>
@@ -907,7 +923,7 @@
                 AOS.init({ duration: 800, once: true, offset: 60 });
             }
 
-            const WEBHOOK_URL = 'https://hook.us1.make.com/bhigavwc6bfhskmnicov25r6jv9fnt1p?produto=SM7';
+            const WEBHOOK_URL = 'https://hook.us1.make.com/bhigavwc6bfhskmnicov25r6jv9fnt1p?produto=SM8';
 
             const popupInscricao = document.getElementById('popup-inscricao');
             let checkoutUrlAtual = '';
@@ -995,7 +1011,6 @@
                     nome: nome,
                     email: email,
                     telefone: telefone,
-                    plano: document.getElementById('plano')?.value || '',
                     utm_source: document.getElementById('utm_source')?.value || '',
                     utm_term: document.getElementById('utm_term')?.value || '',
                     utm_campaign: document.getElementById('utm_campaign')?.value || '',
@@ -1005,9 +1020,15 @@
                 };
 
                 const webhookUrl = new URL(WEBHOOK_URL);
-                Object.keys(payload).forEach(function (key) {
-                    webhookUrl.searchParams.set(key, payload[key]);
-                });
+                webhookUrl.searchParams.set('nome', payload.nome);
+                webhookUrl.searchParams.set('email', payload.email);
+                webhookUrl.searchParams.set('telefone', payload.telefone);
+                webhookUrl.searchParams.set('utm_source', payload.utm_source);
+                webhookUrl.searchParams.set('utm_term', payload.utm_term);
+                webhookUrl.searchParams.set('utm_campaign', payload.utm_campaign);
+                webhookUrl.searchParams.set('utm_medium', payload.utm_medium);
+                webhookUrl.searchParams.set('utm_content', payload.utm_content);
+                webhookUrl.searchParams.set('url', payload.url);
 
                 const redirectSafely = function () {
                     if (redirectUrl && window.location.href !== redirectUrl) {

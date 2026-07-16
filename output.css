@@ -605,10 +605,11 @@ html {
 .text-stroke {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
   color: transparent;
+  transition: -webkit-text-stroke-color 0.3s ease, -webkit-text-stroke-width 0.3s ease, opacity 0.3s ease;
 }
 
 .card-hover:hover .text-stroke {
-  -webkit-text-stroke: 1px rgba(217, 70, 239, 0.3);
+  -webkit-text-stroke: 1.5px rgba(217, 70, 239, 0.75);
 }
 
 .glass-panel {
@@ -849,10 +850,6 @@ html {
 
 .mt-12 {
   margin-top: 3rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .mt-3 {
@@ -2255,6 +2252,10 @@ html {
   opacity: 0.3;
 }
 
+.opacity-40 {
+  opacity: 0.4;
+}
+
 .opacity-55 {
   opacity: 0.55;
 }
@@ -2753,6 +2754,10 @@ html {
   opacity: 0.5;
 }
 
+.group:hover .group-hover\:opacity-70 {
+  opacity: 0.7;
+}
+
 .group:hover .group-hover\:shadow-\[0_0_0_4px_rgba\(217\2c 70\2c 239\2c 0\.25\)\] {
   --tw-shadow: 0 0 0 4px rgba(217,70,239,0.25);
   --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
@@ -2846,10 +2851,6 @@ html {
 
   .md\:h-12 {
     height: 3rem;
-  }
-
-  .md\:h-14 {
-    height: 3.5rem;
   }
 
   .md\:h-20 {
