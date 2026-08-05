@@ -17,13 +17,13 @@ const SOURCE_V2_HTML = path.join(ROOT, 'v2.html');
 const SOURCE_TW_INPUT = path.join(ROOT, 'src', 'input.css');
 const TMP_TW_OUTPUT = path.join(ROOT, '.tmp-tailwind-build.css');
 
-const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/';
-const SHARE_URL = 'https://pos.personaltraineracademy.com.br/';
-const OG_IMAGE_URL = 'https://pos.personaltraineracademy.com.br/assets/og-banner.webp';
+const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/treinamentofeminino';
+const SHARE_URL = 'https://pos.personaltraineracademy.com.br/treinamentofeminino';
+const OG_IMAGE_URL = 'https://pos.personaltraineracademy.com.br/treinamentofeminino/assets/og-banner.webp';
 const PAGE_TITLE = 'Pós-Graduação em Treinamento Feminino | PTA';
 const PAGE_DESCRIPTION =
-  'Pós-graduação em Treinamento Funcional e Treinamento Feminino com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
-const V2_CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/v2.html';
+  'Pós-graduação em Treinamento Feminino com reconhecimento MEC. 360h em 18 meses, formato 100% online. Torne-se referência em fisiologia hormonal, emagrecimento e hipertrofia.';
+const V2_CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/treinamentofeminino-2/';
 const V2_PAGE_TITLE =
   'Pós-graduação em Treinamento Feminino: Emagrecimento, Estética e Performance | PTA';
 const V2_PAGE_DESCRIPTION =
