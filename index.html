@@ -134,7 +134,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="hidden md:block fixed top-6 left-0 right-0 z-50 px-4 md:px-0" data-aos="fade-down"
         data-aos-duration="1000">
-        <div class="container mx-auto max-w-5xl">
+        <div class="container mx-auto max-w-[1300px]">
             <div
                 class="relative flex items-center justify-between px-6 py-3 rounded-full bg-[#05020a]/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:border-brand-primary/30">
 
@@ -155,10 +155,9 @@
                         <span
                             class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                     </a>
-                    <a href="https://wa.me/554195872098?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20P%C3%B3s-Gradua%C3%A7%C3%A3o%20em%20Treinamento%20Feminino."
-                        target="_blank" rel="noopener noreferrer"
+                    <a href="#faq"
                         class="text-xs font-bold uppercase tracking-[0.15em] text-gray-400 hover:text-white transition-colors duration-300 relative group">
-                        Dúvidas
+                        FAQ
                         <span
                             class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                     </a>
@@ -177,58 +176,63 @@
         </div>
     </nav>
 
-    <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <picture>
-                <source media="(max-width: 767px)" srcset="img/LUND-1%20(1).png">
-                <img src="img/lund%20(1).png" alt="Fundo da seção hero - Treinamento Feminino PTA" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" class="w-full h-full object-cover opacity-60">
+    <section class="relative overflow-hidden bg-brand-bg md:min-h-screen md:pt-32 md:pb-20 md:flex md:items-center">
+        <!-- Imagem: no mobile fica no topo em tamanho natural; no desktop vira fundo -->
+        <div class="relative w-full md:absolute md:inset-0 md:z-0">
+            <picture class="block w-full">
+                <source media="(max-width: 767px)" srcset="img/Mobile%20Garon%20TF.webp" type="image/webp">
+                <img src="img/Web%20Garon%20TF.webp" alt="Fundo da seção hero - Treinamento Feminino PTA" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" class="block w-full h-auto object-cover object-top md:absolute md:inset-0 md:h-full md:object-right md:object-center">
             </picture>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent"></div>
+            <!-- Mobile: fade inferior; Desktop: fade da esquerda p/ proteger o texto -->
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-36 sm:h-44 bg-gradient-to-t from-brand-bg from-[20%] via-brand-bg/80 to-transparent md:inset-0 md:h-auto md:bg-gradient-to-r md:from-brand-bg md:from-[28%] md:via-brand-bg/70 md:via-[48%] md:to-transparent"></div>
         </div>
 
         <div
-            class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] z-0 pointer-events-none">
+            class="hidden md:block absolute top-20 right-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] z-0 pointer-events-none">
         </div>
 
-        <div class="container mx-auto px-6 grid lg:grid-cols-1 gap-12 items-center relative z-10">
-            <div class="space-y-6 max-w-3xl">
-                <div data-aos="fade-up" data-aos-delay="0"
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded border border-brand-primary/30 bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest backdrop-blur-md w-fit">
-                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Turma 2026 Confirmada
-                </div>
+        <!-- Conteúdo: mobile abaixo da imagem; desktop à esquerda -->
+        <div class="relative z-10 bg-brand-bg pt-6 pb-16 md:mt-0 md:w-full md:bg-transparent md:pt-0 md:pb-0">
+            <div class="container mx-auto max-w-[1300px] px-6 grid lg:grid-cols-1 gap-12 items-center relative z-10">
+                <div class="space-y-6 max-w-xl xl:max-w-2xl max-md:mx-auto max-md:flex max-md:flex-col max-md:items-center max-md:text-center">
+                    <div data-aos="fade-up" data-aos-delay="0"
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded border border-brand-primary/30 bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest backdrop-blur-md w-fit">
+                        <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Turma 2026 Confirmada
+                    </div>
 
-                <h1 data-aos="fade-up" data-aos-delay="100"
-                    class="text-4xl md:text-6xl font-bold uppercase leading-[1.1] text-white drop-shadow-lg text-left">
-                    Fisiologia, Estética e <br>
-                    <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-pink-300 drop-shadow-none">Treinamento
-                        Feminino</span>
-                </h1>
+                    <h1 data-aos="fade-up" data-aos-delay="100"
+                        class="text-4xl md:text-6xl font-bold uppercase leading-[1.1] text-white drop-shadow-lg text-left max-md:text-center">
+                        Fisiologia, Estética e <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-pink-300 drop-shadow-none">Treinamento
+                            Feminino</span>
+                    </h1>
 
-                <p data-aos="fade-up" data-aos-delay="200"
-                    class="text-lg text-gray-200 max-w-lg leading-relaxed drop-shadow-md font-medium text-left">
-                    Torne-se referência no atendimento feminino. Domine a fisiologia hormonal, emagrecimento e
-                    hipertrofia com segurança e base científica.
-                </p>
+                    <p data-aos="fade-up" data-aos-delay="200"
+                        class="text-lg text-gray-200 max-w-lg leading-relaxed drop-shadow-md font-medium text-left max-md:text-center">
+                        Torne-se referência no atendimento feminino. Domine a fisiologia hormonal, emagrecimento e
+                        hipertrofia com segurança e base científica.
+                    </p>
 
-                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 pt-4 items-start">
-                    <button type="button" id="btn-inscreva-hero"
-                        class="bg-brand-primary text-white font-black uppercase py-4 px-8 rounded hover:bg-brand-secondary transition flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(217,70,239,0.4)] hover:scale-105 transform duration-200 cursor-pointer border-0">
-                        QUERO ME INSCREVER <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <div
-                        class="flex items-center gap-4 px-4 bg-black/30 rounded-lg py-2 backdrop-blur-sm border border-white/5">
-                        <div class="flex -space-x-3">
-                            <img class="w-10 h-10 rounded-full border-2 border-brand-bg md:w-12 md:h-12 object-cover"
-                                src="img/32.jpg" alt="Aluna formada pela Pós-Graduação em Treinamento Feminino PTA" width="48" height="48" loading="lazy" decoding="async"> <img
-                                class="w-10 h-10 rounded-full border-2 border-brand-bg md:w-12 md:h-12 object-cover"
-                                src="img/44.jpg" alt="Aluna formada pela Pós-Graduação em Treinamento Feminino PTA" width="48" height="48" loading="lazy" decoding="async">
-                            <img class="w-10 h-10 rounded-full border-2 border-brand-bg md:w-12 md:h-12 object-cover"
-                                src="img/85.jpg" alt="Aluna formada pela Pós-Graduação em Treinamento Feminino PTA" width="48" height="48" loading="lazy" decoding="async">
+                    <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col md:flex-row gap-4 pt-4 items-start max-md:items-center max-md:w-full">
+                        <button type="button" id="btn-inscreva-hero"
+                            class="bg-brand-primary text-white font-black uppercase py-4 px-8 rounded hover:bg-brand-secondary transition flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(217,70,239,0.4)] hover:scale-105 transform duration-200 cursor-pointer border-0 max-md:w-full">
+                            QUERO ME INSCREVER <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <div
+                            class="flex items-center gap-4 px-4 bg-black/30 rounded-lg py-2 backdrop-blur-sm border border-white/5">
+                            <div class="flex -space-x-3">
+                                <img class="w-10 h-10 rounded-full border-2 border-brand-bg md:w-12 md:h-12 object-cover"
+                                    src="img/32.jpg" alt="Aluna formada pela Pós-Graduação em Treinamento Feminino PTA" width="48" height="48" loading="lazy" decoding="async"> <img
+                                    class="w-10 h-10 rounded-full border-2 border-brand-bg md:w-12 md:h-12 object-cover"
+                                    src="img/44.jpg" alt="Aluna formada pela Pós-Graduação em Treinamento Feminino PTA" width="48" height="48" loading="lazy" decoding="async">
+                                <img class="w-10 h-10 rounded-full border-2 border-brand-bg md:w-12 md:h-12 object-cover"
+                                    src="img/85.jpg" alt="Aluna formada pela Pós-Graduação em Treinamento Feminino PTA" width="48" height="48" loading="lazy" decoding="async">
+                            </div>
+                            <p class="text-xs text-gray-200 font-medium drop-shadow-md text-left">
+                                <strong class="text-brand-primary block text-sm">+4.000 Alunas</strong> Formadas pela PTA
+                            </p>
                         </div>
-                        <p class="text-xs text-gray-200 font-medium drop-shadow-md text-left">
-                            <strong class="text-brand-primary block text-sm">+4.000 Alunas</strong> Formadas pela PTA
-                        </p>
                     </div>
                 </div>
             </div>
@@ -384,7 +388,7 @@
                     Uma Pós-graduação feita para...
                 </h3>
             </div>
-            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-6 max-w-[1300px] mx-auto">
                 <div class="flex gap-6 p-6 rounded-2xl bg-brand-bg border border-white/5 hover:border-brand-primary/30 transition-colors group"
                     data-aos="fade-up" data-aos-delay="0">
                     <div
@@ -771,17 +775,6 @@
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-brand-primary font-bold uppercase tracking-widest text-sm mb-2">F.A.Q.</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-white uppercase mb-6">Perguntas Frequentes</h3>
-                <div
-                    class="bg-brand-bg p-6 rounded-2xl border border-white/5 inline-flex flex-col md:flex-row items-center gap-6 mx-auto">
-                    <p class="text-gray-300 text-sm md:text-base max-w-md text-center md:text-left">
-                        Ficou com mais alguma dúvida? Tire rapidamente pelo WhatsApp da nossa equipe!
-                    </p>
-                    <a href="https://wa.me/554195872098?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20P%C3%B3s-Gradua%C3%A7%C3%A3o%20em%20Treinamento%20Feminino."
-                        target="_blank" rel="noopener noreferrer"
-                        class="bg-[#25D366] text-white font-bold uppercase text-sm py-3 px-8 rounded-full hover:bg-[#128C7E] transition flex items-center gap-2 shadow-lg hover:shadow-[#25D366]/20">
-                        <i class="fab fa-whatsapp text-lg"></i> Tirar Dúvidas
-                    </a>
-                </div>
             </div>
             <div class="space-y-4">
                 <details
@@ -872,8 +865,8 @@
             <h3 class="text-2xl font-bold text-white mb-1">Preencha seus dados</h3>
             <form id="form_sm" class="space-y-4 mt-6">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
-                    <input type="text" id="name" name="name" required placeholder="Seu nome completo"
+                    <label for="nome" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Seu nome completo"
                         class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
                 </div>
                 <div>
@@ -1032,7 +1025,14 @@
 
             utmFields.forEach(function (field) {
                 const input = document.getElementById(field);
-                if (input) input.value = pageParams.get(field) || '';
+                if (!input) return;
+                const fromUrl = pageParams.get(field);
+                if (fromUrl) {
+                    input.value = fromUrl;
+                    try { sessionStorage.setItem(field, fromUrl); } catch (err) {}
+                } else {
+                    try { input.value = sessionStorage.getItem(field) || ''; } catch (err) { input.value = ''; }
+                }
             });
 
             const urlInput = document.getElementById('url');
@@ -1043,7 +1043,7 @@
             document.getElementById('form_sm')?.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const btn = document.getElementById('btn-enviar-form');
-                const nome = document.getElementById('name')?.value?.trim() || '';
+                const nome = document.getElementById('nome')?.value?.trim() || '';
                 const email = document.getElementById('email')?.value?.trim() || '';
                 let telefone = onlyNumbers(document.getElementById('telefone')?.value || '');
                 const erro = document.getElementById('erro-telefone');
@@ -1060,7 +1060,7 @@
 
                 telefone = '+55' + telefone;
                 const payload = {
-                    nome: nome,
+                    name: nome,
                     email: email,
                     telefone: telefone,
                     utm_source: document.getElementById('utm_source')?.value || '',
@@ -1072,7 +1072,7 @@
                 };
 
                 const webhookUrl = new URL(WEBHOOK_URL);
-                webhookUrl.searchParams.set('nome', payload.nome);
+                webhookUrl.searchParams.set('name', payload.name);
                 webhookUrl.searchParams.set('email', payload.email);
                 webhookUrl.searchParams.set('telefone', payload.telefone);
                 webhookUrl.searchParams.set('utm_source', payload.utm_source);
@@ -1083,7 +1083,7 @@
                 webhookUrl.searchParams.set('url', payload.url);
 
                 const redirectSafely = function () {
-                    const redirectUrl = buildWhatsAppRedirect(payload.nome);
+                    const redirectUrl = buildWhatsAppRedirect(payload.name);
                     if (window.location.href !== redirectUrl) {
                         window.location.href = redirectUrl;
                     }

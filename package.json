@@ -4,7 +4,9 @@
   "scripts": {
     "build": "node build.js",
     "build:dev": "tailwindcss -i src/input.css -o output.css",
-    "build:css": "tailwindcss -i src/input.css -o dist/css/style.css --minify"
+    "build:css": "tailwindcss -i src/input.css -o dist/css/style.css --minify",
+    "test": "node test-utm.js",
+    "test:all": "npm run build && npm test"
   },
   "devDependencies": {
     "clean-css": "^5.3.3",

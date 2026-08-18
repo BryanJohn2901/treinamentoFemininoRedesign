@@ -16,6 +16,17 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
         title: ['Oswald', 'sans-serif'],
       },
+      container: {
+        center: true,
+        padding: '1.5rem',
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1300px',
+          '2xl': '1300px',
+        },
+      },
       animation: {
         marquee: 'marquee 40s linear infinite',
         'marquee-reverse': 'marqueeReverse 45s linear infinite',
